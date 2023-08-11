@@ -28,7 +28,7 @@ end
 
 fig = figure;
 color.grid = [0 0 0];
-color.green = [0 0.35 0]; %refer RGB Triplet Code https://www.tug.org/pracjourn/2007-4/walden/color.pdf 
+color.green = [0 0.4 0]; %refer RGB Triplet Code https://www.tug.org/pracjourn/2007-4/walden/color.pdf 
 color.black = [0 0 0];
 color.red = [1 0 0];
 color.blue = [0 0 1];
@@ -37,7 +37,7 @@ color.blue = [0 0 1];
 left.color = color.black; %RGB Black code
 right.color = color.black; %RGB Black code
 set(fig,'defaultAxesColorOrder',[left.color; right.color]);
-set(gca,'fontname','Carial','FontSize',18); % Set it to times
+set(gca,'fontname','times'); % Set it to times
 set(gca,'LineWidth',2);
 set(gca,'fontweight','bold');
 set(gca,'GridColor',color.grid);
@@ -96,7 +96,7 @@ hPRS(2).LineWidth = config.Linewidth + 0.5;
 hHHR(3).LineWidth = config.Linewidth;
 hPRS(3).LineWidth = config.Linewidth;
 %X-axis config
-xlabel('Time after Start of Energizing (ms)','FontSize',20,'Color','black');
+xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black');
 xlim([0 20]);
 xticks(0:1:20);
 hold on
