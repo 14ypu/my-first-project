@@ -83,9 +83,7 @@ ylim ([-2 16]);
 yticks(-2:2:16);
 
 legend('10%O2 - 800K - 1200bar','10%O2 - 1000K - 1200bar','10%O2 - 1200K - 1200bar','FontSize',14);
-str = {'A simple plot';'Note here'};
-text(15,7,str,"FontSize",18,FontWeight="bold");
-%grid on
+grid on
 %grid minor
 
 config.Linewidth = 2; %Linewidth of main line
@@ -114,6 +112,17 @@ xticks(0:1:20);
 hold on
 
 %%
-plot(1:10)
-str = {'A simple plot','from 1 to 10'};
-text(2,7,str)
+figure; 
+ax1 = axes("Position",[0.13 0.58 0.77 0.34]);
+ax1.PositionConstraint = "outerposition";
+plot(ax1,1:10)
+title(ax1,"Preserve OuterPosition")
+yticklabels(ax1,["My incredibly descriptive, excessively wordy, and overly long label",...
+    "label 2","label 3"])
+
+ax2 = axes("Position",[0.13 0.11 0.77 0.34]);
+ax2.PositionConstraint = "innerposition";
+plot(ax2,1:10)
+title(ax2,"Preserve Position")
+yticklabels(ax2,["My incredibly descriptive, excessively wordy, and overly long label",...
+    "label 2","label 3"])
