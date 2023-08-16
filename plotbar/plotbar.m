@@ -93,13 +93,3 @@ text(xt, y, labels, 'HorizontalAlignment','center', 'VerticalAlignment','bottom'
 %}
 %%
 %>>>>>>> 80f885e613e8607bba27c92f8697fb82d91db572
-y = [2 3 4 ; 1 5 2; 6 2 5];
-b = bar(y);
-width = b.BarWidth;
-for i=1:length(y(:, 1))
-    row = y(i, :);
-    % 0.5 is approximate net width of white spacings per group
-    offset = ((width + 0.5) / length(row)) / 2;
-    x = linspace(i-offset, i+offset, length(row));
-    text(x,row,num2str(row'),'vert','bottom','horiz','center');
-end
