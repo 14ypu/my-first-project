@@ -112,8 +112,3 @@ xlabel('Time after Start of Energizing (ms)','FontSize',20,'Color','black');
 xlim([0 20]);
 xticks(0:1:20);
 hold on
-
-%%
-plot(1:10)
-str = {'A simple plot','from 1 to 10'};
-text(2,7,str)
