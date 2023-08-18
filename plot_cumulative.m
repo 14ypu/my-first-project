@@ -5,7 +5,6 @@ count = 1;
 while A10HHR800(count,2) <= 0.02
     count = count + 1;
 end
-%%
 range.array_value = count; %run validate to find
 %1200K
 for i = 1:range.array_value
@@ -122,22 +121,4 @@ hold on
 
 %fix_dottedline('untitled.eps');
 save('cumlative_workspace')
-%%
-% Tạo dữ liệu ví dụ
-x = linspace(0, 2*pi, 100);
-y = sin(x);
-
-% Tạo đối tượng đồ thị
-figure;
-
-% Vẽ đồ thị dạng đường chấm chấm
-lineObj = plot(x, y + 1, 'LineStyle', 'none', 'Marker', '.', 'MarkerSize', 5, 'Color', 'r');
-
-% Đặt nhãn và tiêu đề
-xlabel('Trục X');
-ylabel('Trục Y');
-title('Đường Dạng Điểm Chấm Chấm');
-
-% Hiển thị đồ thị
-grid on;
-
+savefig('cumulative figure')
