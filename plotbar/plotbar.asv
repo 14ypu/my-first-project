@@ -1,6 +1,5 @@
 close all;
 fig2 = figure;
-%input parameter
 Oxy21 = [9.47 10.04 8.36];
 Oxy16 = [13.66 14.70 12.04];
 Oxy11 = [16.22 17.20 17.42];
@@ -74,7 +73,7 @@ ax.YAxis.FontSize = 16; %Ytick fontsize
 %    x = linspace(i-offset, i+offset, length(row));
 %    text(x,row,num2str(row'),'vert','bottom','horiz','center','FontSize',18,'FontWeight','bold');
 %end
-str = {'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
+str = {'P_{inj} = 1000bar';'m_{{inj = 67.93mg'};
 text(1,18,str,'FontSize',16,'FontWeight','bold',BackgroundColor=[1 1 1]);
 
 set(gca,'fontname','Carial','FontSize',16); % Set it to times
