@@ -40,7 +40,7 @@ fig = figure('Name','Cumulative_Heatlease_Rate','Color','w'); %Create Figure
 %Figure config
 set(gca,'fontname','Carial','FontSize',18); % Set it to times
 set(gca,'LineWidth',2);
-set(gca,'fontweight','bold');
+%set(gca,'fontweight','bold');
 %Color code
 color.green = [0 0.35 0]; %refer RGB Triplet Code https://www.tug.org/pracjourn/2007-4/walden/color.pdf 
 color.black = [0 0 0];
@@ -98,13 +98,13 @@ ax = gca;               % get the current axis
 ax.Clipping = 'off';    % turn clipping off
 %set(ax,'xaxisLocation','top')
 
-xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black');
+xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black','FontWeight','bold');
 xlim([0 20]);
 %xlim auto;
 xticks(0:1:20);
 
 %y-axis
-ylabel('Heat Release Rate (J)','FontSize',16,'Color','black'); % left y-axis 
+ylabel('Heat Release Rate (J)','FontSize',16,'Color','black','FontWeight','bold'); % left y-axis 
 ylim ([-300 2400]); %scaling
 yticks(-300:300:2400);
 
@@ -120,7 +120,7 @@ legend('21% O2 - 1200K','10% O2 - 1200K',...
 hold on
 
 str = {'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
-text(12,300,str,'FontSize',16,'FontWeight','bold',BackgroundColor=[1 1 1]);
+text(12,300,str,'FontSize',16,'FontWeight','normal',BackgroundColor=[1 1 1]);
 
 %fix_dottedline('untitled.eps');
 save('cumlative_workspace')

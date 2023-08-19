@@ -83,7 +83,7 @@ ylim ([PRS10(1,2)-4 PRS10(1,2)+14]);
 %ylim auto;
 yticks(PRS10(1,2)-4 : 2 : PRS10(1,2)+14);
 
-legend('10%O2 - 1200K','15%O2 - 1200K','21%O2 - 1200K','FontSize',14,'Fontweight','normal');
+legend('10%O2 - 1000K','15%O2 - 1000K','21%O2 - 1000K','FontSize',14,'Fontweight','normal');
 %str = {'A simple plot';'Note here'};
 %text(15,7,str,"FontSize",16,FontWeight="bold");
 %grid on

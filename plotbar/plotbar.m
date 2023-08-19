@@ -48,7 +48,7 @@ hold on
 %bp(3).FaceColor = 'b';
 %hatchfill2(legendABC(1),'single','HatchAngle',0,'hatchcolor',[0 0 0],'HatchLineWidth',1.5);
 
-legend([A B C],{'1200K' '1000K' '800K'},'FontSize',16);
+legend([A B C],{'1200K' '1000K' '800K'},'FontSize',16,'FontWeight','normal');
 
 %set(gca,'YTick',0:1:4,'YTickLabel',0:1:5)
 set(gca,'YLim',[0 22]);
@@ -75,7 +75,7 @@ ax.YAxis.FontSize = 16; %Ytick fontsize
 %    text(x,row,num2str(row'),'vert','bottom','horiz','center','FontSize',18,'FontWeight','bold');
 %end
 str = {'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
-text(1,18,str,'FontSize',16,'FontWeight','bold',BackgroundColor=[1 1 1]);
+text(0.9,20,str,'FontSize',16,'FontWeight','normal',BackgroundColor=[1 1 1]);
 
 set(gca,'fontname','Carial','FontSize',16); % Set it to times
 set(gca,'LineWidth',1.5);
