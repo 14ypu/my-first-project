@@ -48,7 +48,7 @@ color.red = [1 0 0];
 color.blue = [0 0 1];
 
 %title
-title('Cumulative Heat release Rate','FontSize',20);
+%title('Cumulative Heat release Rate','FontSize',20);
 hold on
 %plot
 [hHHR1200] = plot(tmHHRC20,yHHRC20,tmHHRC10,yHHRC10);
@@ -58,7 +58,7 @@ hold on
 [hHHR800] = plot(tmHHRA20,yHHRA20,tmHHRA10,yHHRA10);
 hold on
 %Line Config
-config.Linewidth = 3;
+config.Linewidth = 2;
 hHHR1200(1).LineStyle = '-';
 hHHR1200(1).Color = color.black;
 %hHHR(1).Marker = 'o';
@@ -98,13 +98,13 @@ ax = gca;               % get the current axis
 ax.Clipping = 'off';    % turn clipping off
 %set(ax,'xaxisLocation','top')
 
-xlabel('Time after Start of Energizing (ms)','FontSize',20,'Color','black');
+xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black');
 xlim([0 20]);
 %xlim auto;
 xticks(0:1:20);
 
 %y-axis
-ylabel('Heat Release Rate (J)','FontSize',20,'Color','black'); % left y-axis 
+ylabel('Heat Release Rate (J)','FontSize',16,'Color','black'); % left y-axis 
 ylim ([-300 2400]); %scaling
 yticks(-300:300:2400);
 
@@ -116,8 +116,11 @@ yticks(-300:300:2400);
 legend('21% O2 - 1200K','10% O2 - 1200K',...
     '21% O2 - 1000K','10% O2 - 1000K',...
     '21% O2 - 800K','10% O2 - 800K','FontSize',14,'FontWeight','normal');
-grid on
+%grid on
 hold on
+
+str = {'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
+text(12,300,str,'FontSize',16,'FontWeight','bold',BackgroundColor=[1 1 1]);
 
 %fix_dottedline('untitled.eps');
 save('cumlative_workspace')

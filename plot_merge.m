@@ -3,12 +3,12 @@ close all;
 format long;
 
 for i = 1:1251
-    tmHHR1 = 1000*HHR800(1:i,1);
-    tmHHR2 = 1000*HHR1000(1:i,1);
-    tmHHR3 = 1000*HHR1200(1:i,1);
-    yHHR1 = HHR800(1:i,2)/1000;
-    yHHR2 = HHR1000(1:i,2)/1000;
-    yHHR3 = HHR1200(1:i,2)/1000;
+    tmHHR1 = 1000*HHR10(1:i,1);
+    tmHHR2 = 1000*HHR15(1:i,1);
+    tmHHR3 = 1000*HHR20(1:i,1);
+    yHHR1 = HHR10(1:i,2)/1000;
+    yHHR2 = HHR15(1:i,2)/1000;
+    yHHR3 = HHR20(1:i,2)/1000;
 end
 %tmHHR1 = HHR800(:,3);
 %tmHHR2 = HHR1000(:,3);
@@ -17,12 +17,12 @@ end
 %yHHR2 = HHR1000(:,4);
 %yHHR3 = HHR1200(:,4);
 for i = 1:1251
-    tmPRS1 = 1000*PRS800(1:i,1);
-    tmPRS2 = 1000*PRS1000(1:i,1);
-    tmPRS3 = 1000*PRS1200(1:i,1);
-    yPRS1 = PRS800(1:i,2);
-    yPRS2 = PRS1000(1:i,2);
-    yPRS3 = PRS1200(1:i,2);
+    tmPRS1 = 1000*PRS10(1:i,1);
+    tmPRS2 = 1000*PRS15(1:i,1);
+    tmPRS3 = 1000*PRS20(1:i,1);
+    yPRS1 = PRS10(1:i,2);
+    yPRS2 = PRS15(1:i,2);
+    yPRS3 = PRS20(1:i,2);
 end
 
 
@@ -39,13 +39,13 @@ right.color = color.black; %RGB Black code
 set(fig,'defaultAxesColorOrder',[left.color; right.color]);
 %set(gca,'defaultAxesColorOrder',[left.color; right.color]);
 
-set(gca,'fontname','Carial','FontSize',18); % Set it to times
+set(gca,'fontname','Carial','FontSize',16); % Set it to times
 set(gca,'LineWidth',2);
 set(gca,'fontweight','bold');
 set(gca,'GridColor',color.grid);
 %title('10% O2 - 1200 bar','FontSize',20);
 %title('15% O2 - 1200 bar','FontSize',20);
-title('20% O2 - 1200 bar','FontSize',20);
+%title('20% O2 - 1200 bar','FontSize',20);
 
 %[hHHR1,hHHR2,hHHR3,hPRS1,hPRS2,hPRS3]=plotyy([timing,timing,timing],[yHHR1,yHHR2,yHHR3],[timing,timing,timing],[yPRS1,yPRS2,yPRS3]);
 %set(gca,'fontname','times')  % Set it to times
@@ -57,34 +57,35 @@ title('20% O2 - 1200 bar','FontSize',20);
 yyaxis left 
 [hHHR] = plot(tmHHR1,yHHR1,tmHHR2,yHHR2,tmHHR3,yHHR3);
 
-hHHR(1).LineStyle = '-';
-hHHR(1).Color = color.red;
+hHHR(1).LineStyle = '-.';
+hHHR(1).Color = color.blue;
 %hHHR(1).Marker = 'o';
 hHHR(2).LineStyle = ':';
-hHHR(2).Color = color.green;
+hHHR(2).Color = color.red;
 %hHHR(2).LineWidth = 5;
-hHHR(3).LineStyle = '-.';
-hHHR(3).Color = color.blue;
-ylabel('Heat Release Rate (J/ms)','FontSize',20,'Color','black'); % left y-axis 
-ylim ([0 700]); %scaling
+hHHR(3).LineStyle = '-';
+hHHR(3).Color = color.black;
+ylabel('Heat Release Rate (J/ms)','FontSize',16,'Color','black'); % left y-axis 
+ylim ([-100 700]); %scaling
 %yticks(-1:0.1:7);
 
 yyaxis right 
 [hPRS] = plot(tmPRS1,yPRS1,tmPRS2,yPRS2,tmPRS3,yPRS3);
 
-hPRS(1).LineStyle = '-';
-hPRS(1).Color = color.red;
+hPRS(1).LineStyle = '-.';
+hPRS(1).Color = color.blue;
 hPRS(2).LineStyle = ':';
-hPRS(2).Color = color.green;
-hPRS(3).LineStyle = '-.';
-hPRS(3).Color = color.blue;
-ylabel('Combustion Pressure (bar)','FontSize',20); % right y-axis
-ylim ([-2 16]);
-yticks(-2:2:16);
+hPRS(2).Color = color.red;
+hPRS(3).LineStyle = '-';
+hPRS(3).Color = color.black;
+ylabel('Combustion Pressure (bar)','FontSize',16); % right y-axis
+ylim ([PRS10(1,2)-2 PRS10(1,2)+14]);
+%ylim auto;
+yticks(PRS10(1,2)-2 : 2 : PRS10(1,2)+14);
 
-legend('10%O2 - 800K - 1200bar','10%O2 - 1000K - 1200bar','10%O2 - 1200K - 1200bar','FontSize',14);
-str = {'A simple plot';'Note here'};
-text(15,7,str,"FontSize",18,FontWeight="bold");
+legend('10%O2 - 1200K','15%O2 - 1200K','21%O2 - 1200K','FontSize',14,'Fontweight','normal');
+%str = {'A simple plot';'Note here'};
+%text(15,7,str,"FontSize",16,FontWeight="bold");
 %grid on
 %grid minor
 
@@ -95,8 +96,8 @@ config.Linewidth = 2; %Linewidth of main line
 %end
 hHHR(1).LineWidth = config.Linewidth;
 hPRS(1).LineWidth = config.Linewidth;
-hHHR(2).LineWidth = config.Linewidth + 0.5;
-hPRS(2).LineWidth = config.Linewidth + 0.5;
+hHHR(2).LineWidth = config.Linewidth + 0.3;
+hPRS(2).LineWidth = config.Linewidth + 0.3;
 hHHR(3).LineWidth = config.Linewidth;
 hPRS(3).LineWidth = config.Linewidth;
 
@@ -106,9 +107,13 @@ hPRS(3).LineWidth = config.Linewidth;
 %X-axis config
 ax = gca;               % get the current axis
 ax.Clipping = 'off';    % turn clipping off
-set(ax,'xaxisLocation','top')
+set(ax,'xaxisLocation','bottom')
 
-xlabel('Time after Start of Energizing (ms)','FontSize',20,'Color','black');
+xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black');
 xlim([0 20]);
 xticks(0:1:20);
+
+str = {'P_{amb} = 51.1bar';'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
+text(14,38.6,str,'FontSize',14,'FontWeight','normal',BackgroundColor=[1 1 1]);
+
 hold on
