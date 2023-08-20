@@ -74,8 +74,8 @@ ax.YAxis.FontSize = 16; %Ytick fontsize
 %    x = linspace(i-offset, i+offset, length(row));
 %    text(x,row,num2str(row'),'vert','bottom','horiz','center','FontSize',18,'FontWeight','bold');
 %end
-str = {'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
-text(0.9,20,str,'FontSize',16,'FontWeight','normal',BackgroundColor=[1 1 1]);
+%str = {'P_{inj} = 1000bar';'m_{inj} = 67.93mg'};
+%text(0.9,20,str,'FontSize',16,'FontWeight','normal',BackgroundColor=[1 1 1]);
 
 set(gca,'fontname','Carial','FontSize',16); % Set it to times
 set(gca,'LineWidth',1.5);
