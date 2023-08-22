@@ -113,7 +113,7 @@ xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black');
 xlim([0 20]);
 xticks(0:1:20);
 
-str = {'P_{amb} = 52 bar';'T_{amb} = 1200 K';'P_{inj} = 1000 bar'};
+str = {'P_{amb} = 51 bar';'T_{amb} = 1200 K';'P_{inj} = 1000 bar'};
 text(14,48.5,str,'FontSize',14,'FontWeight','normal',BackgroundColor=[1 1 1]);
 
 hold on
