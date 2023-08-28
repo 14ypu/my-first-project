@@ -113,7 +113,7 @@ xlabel('Time after Start of Injector Energizing (ms)','FontSize',20,'Color','bla
 xlim([0 20]);
 xticks(0:1:20);
 
-str = {'P_{amb} = 34 bar';'T_{amb} = 800 K';'P_{inj} = 1000bar'};
+str = {'P_{amb} = 34 bar';'T_{amb} = 800 K';'P_{inj} = 1000 bar'};
 text(12.5,38,str,'FontSize',20,'FontWeight','normal',BackgroundColor=[1 1 1],fontname='times');
 
 hold on

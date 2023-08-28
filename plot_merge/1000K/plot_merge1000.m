@@ -26,7 +26,7 @@ for i = 1:1251
 end
 
 
-fig = figure('Name','Measured Data','Color','w');
+fig = figure('Name','Measured Data','Color','w','Position',[0 0 1300 850]);
 color.grid = [0 0 0];
 color.green = [0 0.35 0]; %refer RGB Triplet Code https://www.tug.org/pracjourn/2007-4/walden/color.pdf 
 color.black = [0 0 0];
@@ -39,9 +39,9 @@ right.color = color.black; %RGB Black code
 set(fig,'defaultAxesColorOrder',[left.color; right.color]);
 %set(gca,'defaultAxesColorOrder',[left.color; right.color]);
 
-set(gca,'fontname','Carial','FontSize',16); % Set it to times
-set(gca,'LineWidth',2);
-set(gca,'fontweight','bold');
+set(gca,'fontname','Times','FontSize',20); % Set it to times
+set(gca,'LineWidth',1.25);
+%set(gca,'fontweight','bold');
 set(gca,'GridColor',color.grid);
 %title('10% O2 - 1200 bar','FontSize',20);
 %title('15% O2 - 1200 bar','FontSize',20);
@@ -65,7 +65,7 @@ hHHR(2).Color = color.red;
 %hHHR(2).LineWidth = 5;
 hHHR(3).LineStyle = '-';
 hHHR(3).Color = color.black;
-ylabel('Heat Release Rate (J/ms)','FontSize',16,'Color','black'); % left y-axis 
+ylabel('Heat Release Rate (J/ms)','FontSize',20,'Color','black'); % left y-axis 
 ylim ([-200 700]); %scaling
 %yticks(-1:0.1:7);
 
@@ -78,18 +78,18 @@ hPRS(2).LineStyle = ':';
 hPRS(2).Color = color.red;
 hPRS(3).LineStyle = '-';
 hPRS(3).Color = color.black;
-ylabel('Combustion Pressure (bar)','FontSize',16); % right y-axis
+ylabel('Combustion Pressure (bar)','FontSize',20); % right y-axis
 ylim ([PRS10(1,2)-4 PRS10(1,2)+14]);
 %ylim auto;
 yticks(PRS10(1,2)-4 : 2 : PRS10(1,2)+14);
 
-legend('10%O2','15%O2','21%O2','FontSize',14,'Fontweight','normal');
+legend(' 10% O_{2 } ',' 15% O_{2 } ',' 21% O_{2 } ','FontSize',20,'Fontweight','normal');
 %str = {'A simple plot';'Note here'};
 %text(15,7,str,"FontSize",16,FontWeight="bold");
 %grid on
 %grid minor
 
-config.Linewidth = 2; %Linewidth of main line
+config.Linewidth = 1.75; %Linewidth of main line
 %for i=1:1:3
    % hHHR(i).LineWidth = config.Linewidth;
    % hPRS(i).LineWidth = config.Linewidth;
@@ -109,11 +109,10 @@ ax = gca;               % get the current axis
 ax.Clipping = 'off';    % turn clipping off
 set(ax,'xaxisLocation','bottom')
 
-xlabel('Time after Start of Energizing (ms)','FontSize',16,'Color','black');
+xlabel('Time after Start of Injector Energizing (ms)','FontSize',20,'Color','black');
 xlim([0 20]);
 xticks(0:1:20);
 
 str = {'P_{amb} = 43 bar';'T_{amb} = 1000 K';'P_{inj} = 1000 bar'};
-text(14,40.58,str,'FontSize',14,'FontWeight','normal',BackgroundColor=[1 1 1]);
-
+text(12.5,48,str,'FontSize',20,'FontWeight','normal',BackgroundColor=[1 1 1],fontname='times');
 hold on
