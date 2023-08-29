@@ -70,7 +70,7 @@ ylim ([-200 600]); %scaling
 %yticks(-1:0.1:7);
 
 yyaxis right 
-[hPRS] = plot(tmPRS1,yPRS1,tmPRS2,yPRS2,tmPRS3,yPRS3);
+[hPRS] = plot(tmPRS1,yPRS1,"Marker","^",tmPRS2,yPRS2,tmPRS3,yPRS3);
 
 hPRS(1).LineStyle = '-.';
 hPRS(1).Color = color.blue;
