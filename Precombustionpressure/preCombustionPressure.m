@@ -2,9 +2,10 @@
 close all;
 format long;
 
+data_import = PreCombustionPressure;
 for i = 1:100001
-    tmPreCombustionPress = 1000*CombustionPressure(1:i,1);
-    yPreCombustionPress = CombustionPressure(1:i,2);
+    tmPreCombustionPress = 1000*data_import(1:i,1);
+    yPreCombustionPress = data_import(1:i,2);
 end
 
 fig = figure('Name','Measured Data','Color','w','Position',[0 0 1300 850]);
@@ -17,7 +18,7 @@ left.color = color.black; %RGB Black code
 right.color = color.black; %RGB Black code
 set(fig,'defaultAxesColorOrder',[left.color; right.color]);
 set(gca,'fontname','Times','FontSize',20); % Set it to times
-set(gca,'LineWidth',1.25);
+%set(gca,'LineWidth',1.6);
 set(gca,'GridColor',color.grid);
 
 [hHHR] = plot(tmPreCombustionPress,yPreCombustionPress);
@@ -39,7 +40,7 @@ xlabel('Time after Start of Spark Ignited (ms)','FontSize',20,'Color','black','f
 xlim([-100 1700]);
 set(gca,'fontname','Times','FontSize',20); % Set it to times
 %xticks(0:1:20);
-
+set(gca,'LineWidth',2);
 %str = {'P_{amb} = 51 bar';'T_{amb} = 1200 K';'P_{inj} = 1000 bar'};
 %text(12.5,55,str,'FontSize',20,'FontWeight','normal',BackgroundColor=[1 1 1],fontname='times');
 
