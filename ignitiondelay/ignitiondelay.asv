@@ -1,0 +1,83 @@
+close all;
+fig = figure('Position',[0 0 1300 850]);
+ignitiondelay800_800 = 2.03;
+ignitiondelay800_1200 = 1.61;
+ignitiondelay1000_800 = 1.16;
+ignitiondelay1000_1200 = 1.08;
+
+ignition_delay = [ignitiondelay800_800 ignitiondelay800_1200 ignitiondelay1000_800 ignitiondelay1000_1200];
+%Oxy15 = [1.6 2.256 3.184];
+%Oxy10 = [1.87 3 3.616];
+%ytotal = [ignition_delay; Oxy15; Oxy10];
+errhigh = [0.11 0.11 0.11 0.1];
+errlow = [0.15 0.15 0.15 0.15];
+%err15 = [0.1 0.12 0.17];
+%err10 = [0.14 0.11 0.18];
+x = [1 2 3 4];
+
+
+plot(x,ignition_delay,'square',MarkerFaceColor=[0 0 0],MarkerSize=12,MarkerEdgeColor='none');
+hold on
+
+errorbar(x,ignition_delay,errhigh,errlow,"vertical","LineStyle","none",Color=[0 0 0],LineWidth=1);
+hold on
+
+x_loc = 1:length(ignition_delay) +  0.7;
+y_loc = ignition_delay + 0.05;
+text(1:length(ignition_delay)+0.7,ignition_delay+0.05,num2str(ignition_delay'),'vert','bottom','horiz','right','FontSize',20,'Fontname','Times'); 
+hold on
+%plot(x,Oxy15,'square',MarkerFaceColor=[1 0 0],MarkerSize=14,MarkerEdgeColor='none');
+%hold onx`
+%
+%errorbar(x,Oxy15,err15,"vertical","LineStyle","none",Color=[0 0 0],LineWidth=1);
+%hold on
+%
+%plot(x,Oxy10,'o',MarkerFaceColor=[0 0 1],MarkerSize=12,MarkerEdgeColor='none');
+%hold on
+%
+%errorbar(x,Oxy10,err10,"vertical","LineStyle","none",Color=[0 0 0],LineWidth=1);
+%hold on
+
+%coefficients21 = polyfit(x, ignition_delay, 1);
+%xFit = linspace(min(x), max(x), 1000);
+%yFit21 = polyval(coefficients21 , xFit);
+%%plot(xFit, yFit,'LineWidth', 1.25,'LineStyle','--');
+%plot(xFit, yFit21, 'LineWidth', 1.5,'LineStyle','--','Color',[0 0 0]);
+%hold on
+%
+%coefficients15 = polyfit(x, Oxy15, 1);
+%xFit = linspace(min(x), max(x), 1000);
+%yFit15 = polyval(coefficients15 , xFit);
+%hold on;
+%%plot(xFit, yFit,'LineWidth', 1.25,'LineStyle','--');
+%plot(xFit, yFit15, 'LineWidth', 1.5,'LineStyle','--','Color',[1 0 0]);
+%hold on
+%
+%coefficients10 = polyfit(x, Oxy10, 1);
+%%xFit = linspace(min(x), max(x), 1000);
+%yFit10 = polyval(coefficients10 , xFit);
+%hold on;
+%%plot(xFit, yFit,'LineWidth', 1.25,'LineStyle','--');
+%plot(xFit, yFit10, 'LineWidth', 1.5,'LineStyle','--','Color',[0 0 1]);
+%hold on
+ax = gca;
+
+xlim([0.5 4.5]);
+xticks(1:1:4);
+xlabel('Ambient temperature condition (K)','FontSize',20,'Color','black'); % left y-axis 
+set(gca, 'XTickLabel', {'800K-800bar','800K-1200bar','1000K-800bar','1000K-1200bar'},'FontSize',20);
+
+ylim([0.5 2.5]);
+yticks(0.5:0.3:2.5);
+ylabel('Ignition delay (ms)','FontSize',20,'Color','black'); % left y-axis 
+
+set(gca,'fontname','Times','FontSize',20); % Set it to times
+set(gca,'LineWidth',2);
+%legend({'21% O_{2} ','','15% O_{2} ','','10% O_{2} ',''},'FontSize',20,'Fontweight','normal','Orientation','horizontal',LineWidth=1.5);
+%str = {'Diesel combustion';'Solenoid injector';'P_{inj} = 1000 bar'};
+%text(1100,1,str,'FontName','Times','FontSize',20,'FontWeight','normal',BackgroundColor=[1 1 1]);
+
+%ax.ZGrid = 'on';
+ax.XGrid = 'off';
+ax.YGrid = 'on';
+hold on
