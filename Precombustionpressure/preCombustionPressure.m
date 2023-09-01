@@ -1,10 +1,10 @@
 %ve do thi
 close all;
 format long;
-
+import_filename = PreCombustionPressure1000K;
 for i = 1:100001
-    tmPreCombustionPress = 1000*CombustionPressure(1:i,1);
-    yPreCombustionPress = CombustionPressure(1:i,2);
+    tmPreCombustionPress = 1000*import_filename(1:i,1);
+    yPreCombustionPress = import_filename(1:i,2);
 end
 
 fig = figure('Name','Measured Data','Color','w','Position',[0 0 1300 850]);
