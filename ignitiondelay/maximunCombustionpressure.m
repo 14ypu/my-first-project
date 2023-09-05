@@ -9,17 +9,26 @@ maxCombustionPress = [maxCombustionPress800_800 maxCombustionPress800_1200 maxCo
 %Oxy15 = [1.6 2.256 3.184];
 %Oxy10 = [1.87 3 3.616];
 %ytotal = [maxCombustionPress; Oxy15; Oxy10];
-errhigh = [0.11 0.11 0.11 0.1];
-errlow = [0.15 0.15 0.15 0.15];
+errhigh = [0.22 0.29 0.42 0.34];
+%errlow = [0.15 0.15 0.15 0.15];
 %err15 = [0.1 0.12 0.17];
 %err10 = [0.14 0.11 0.18];
 x = [1 2 3 4];
+color.green = [0 1 0]; %refer RGB Triplet Code https://www.tug.org/pracjourn/2007-4/walden/color.pdf 
+color.black = [0 0 0];
+color.red = [1 0 0];
+color.blue = [0 0 1];
 
-
-plot(x,maxCombustionPress,'square',MarkerFaceColor=[0 0 0],MarkerSize=12,MarkerEdgeColor='none');
+plot(x(1,1),maxCombustionPress(1,1),'^',MarkerFaceColor=color.black,MarkerSize=17,MarkerEdgeColor='none');
+hold on
+plot(x(1,2),maxCombustionPress(1,2),'square',MarkerFaceColor=color.red,MarkerSize=18,MarkerEdgeColor='none');
+hold on
+plot(x(1,3),maxCombustionPress(1,3),'o',MarkerFaceColor=color.blue,MarkerSize=17,MarkerEdgeColor='none');
+hold on
+plot(x(1,4),maxCombustionPress(1,4),'diamond',MarkerFaceColor=color.green,MarkerSize=17,MarkerEdgeColor='none');
 hold on
 
-errorbar(x,maxCombustionPress,errhigh,errlow,"vertical","LineStyle","none",Color=[0 0 0],LineWidth=1);
+errorbar(x,maxCombustionPress,errhigh,"vertical","LineStyle","none",Color=[0 0 0],LineWidth=1.25);
 hold on
 
 x_loc = 1:length(maxCombustionPress);
@@ -64,12 +73,12 @@ ax = gca;
 
 xlim([0.5 4.5]);
 xticks(1:1:4);
-xlabel('Ambient temperature condition (K)','FontSize',20,'Color','black'); % left y-axis 
+%xlabel('Ambient temperature condition (K)','FontSize',20,'Color','black'); % left y-axis 
 set(gca, 'XTickLabel', {'800K-800bar','800K-1200bar','1000K-800bar','1000K-1200bar'},'FontSize',20);
 
 ylim([9 13.5]);
 yticks(9:0.5: 13.5);
-ylabel('Maximum Compression Pressure (bar)','FontSize',20,'Color','black'); % left y-axis 
+ylabel('Maximum Combustion Pressure (bar)','FontSize',20,'Color','black'); % left y-axis 
 
 set(gca,'fontname','Times','FontSize',20); % Set it to times
 set(gca,'LineWidth',2);
